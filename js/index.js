@@ -19,7 +19,7 @@ async function getUserByToken(token) {
 async function logout() {
   const token = getToken();
   if (token === null) {
-    location.assign('/login');
+    location.assign('/login5');
     return;
   }
   try {
@@ -32,7 +32,7 @@ async function logout() {
     console.log('logout error', error);
   } finally {
     localStorage.clear();
-    location.assign('/login');
+    location.assign('/login4');
   }
 }
 
@@ -53,7 +53,7 @@ async function getBooks(token) {
 async function deleteBook(bookId) {
   const token = getToken();
   if (token === null) {
-    location.assign('/login');
+    location.assign('/login3');
     return;
   }
   await axios.delete(`https://api.marktube.tv/v1/book/${bookId}`, {
@@ -126,7 +126,7 @@ async function main() {
   // 토큰 체크
   const token = getToken();
   if (token === null) {
-    location.assign('/login');
+    // location.assign('/login2');
     return;
   }
 
@@ -134,7 +134,7 @@ async function main() {
   const user = await getUserByToken(token);
   if (user === null) {
     localStorage.clear();
-    location.assign('/login');
+    location.assign('/login1');
     return;
   }
 
